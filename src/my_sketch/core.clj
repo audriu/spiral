@@ -10,10 +10,10 @@
                             20 50))]
 
     {:dots (into [] (for [r (map #(* max-r %)
-                                 (range 0 1 (/ n)))]
+                                 (range 0 1 (* 5 (/ n))))]
                       [(int r) 0]))}))
 
-(def speed 0.0005)
+(def speed 0.0008)
 
 (defn move [dot]
   (let [[r a] dot]
@@ -27,7 +27,7 @@
    (+ (/ (q/height) 2) (* r (q/sin a)))])
 
 (defn draw-state [state]
-  (q/background 248 177 150)
+  (q/background 148 177 100)
   (q/fill 0)
   (let [dots (:dots state)]
     (loop [curr (first dots)
@@ -45,7 +45,7 @@
 
 (q/defsketch my-sketch
   :host "host"
-  :size [500 700]
+  :size [500 800]
   :setup setup
   :update update-state
   :draw draw-state
