@@ -29,6 +29,7 @@
 (defn draw-state [state]
   (q/background 148 177 100)
   (q/fill 0)
+  (q/line (first (dot->coord [0 0])) (second (dot->coord [0 0])) 1000 (second (dot->coord [0 0])))
   (let [dots (:dots state)]
     (loop [curr (first dots)
            tail (rest dots)
